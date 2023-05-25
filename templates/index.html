@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="styles.css">
+  <title>Heart Disease Questionnaire</title>
+</head>
+<body>
+  <h1>Heart Disease Questionnaire</h1>
+  <form action="http://127.0.0.1:5000/submit" method="post" id = "data_form">
+    <label for="fried-food">Do you eat fried food?</label>
+    <select id="fried-food" name="fried-food" required>
+      <option value="">Select an option</option>
+      <option value="yes">Yes</option>
+      <option value="no">No</option>
+    </select><br>
+
+    <label for="alcohol">Do you drink alcohol?</label>
+    <select id="alcohol" name="alcohol" required>
+      <option value="">Select an option</option>
+      <option value="yes">Yes</option>
+      <option value="no">No</option>
+    </select><br>
+
+    <label for="exercise">Do you exercise daily?</label>
+    <select id="exercise" name="exercise" required>
+      <option value="">Select an option</option>
+      <option value="yes">Yes</option>
+      <option value="no">No</option>
+    </select><br>
+
+    <label for="age">What is your age?</label>
+    <input type="number" id="age" name="age" required><br>
+
+    <label for="diabetes">Do you have diabetes?</label>
+    <select id="diabetes" name="diabetes" required>
+      <option value="">Select an option</option>
+      <option value="yes">Yes</option>
+      <option value="no">No</option>
+    </select><br>
+
+    <label for="family-history">Does anyone from your blood relatives have heart-related diseases?</label>
+    <select id="family-history" name="family-history" required>
+      <option value="">Select an option</option>
+      <option value="yes">Yes</option>
+      <option value="no">No</option>
+    </select><br>
+
+    <label for="smoking">Do you smoke?</label>
+    <select id="smoking" name="smoking" required>
+      <option value="">Select an option</option>
+      <option value="yes">Yes</option>
+      <option value="no">No</option>
+    </select><br>
+
+    <input type="submit" value="Submit" id = "btn">
+  </form>
+  <script src="script.js" type="text/javascript"></script>
+</body>
+</html>
