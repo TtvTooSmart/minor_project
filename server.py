@@ -2,6 +2,8 @@ from flask import Flask, request, jsonify, render_template, redirect, url_for
 
 app = Flask(__name__)
 
+
+    
 @app.route('/')
 def index():
     return render_template('index.html')
@@ -15,16 +17,20 @@ def submit():
     age = int(request.form.get('age'))
     diabetes = request.form.get('diabetes')
     heart_disease = request.form.get('family-history')
+    
 
-        
 
 
     # Determine the weight of heart attack and artery blockage
     heart_attack_weight = 0
     artery_block_weight = 0
+    
+        
 
-    print (heart_attack_weight)
-    print (artery_block_weight)
+        
+
+    # print (heart_attack_weight)
+    # print (artery_block_weight)
 
     if smoke == 'yes':
         heart_attack_weight += 8
@@ -67,6 +73,12 @@ def submit():
         print (heart_attack_weight)
         print (artery_block_weight)
         
+        
+    global heart_attack_weight_g 
+    heart_attack_weight_g = heart_attack_weight
+    global artery_block_weight_g 
+    artery_block_weight_g= artery_block_weight
+        
     # global heart_attack_weight_g 
     # heart_attack_weight_g = heart_attack_weight
     # global artery_block_weight_g 
@@ -76,7 +88,25 @@ def submit():
     
     # 33 31.2
 
+    if heart_attack_weight >= 33 :
+        const_heart_attack_chances = "highly likely"
+    elif heart_attack_weight < 15 :
+        const_heart_attack_chances = "less"
+    else:
+        const_heart_attack_chances = "medium"
+        
+    if artery_block_weight >= 31.2 :
+        const_artery_block_chances = "highly likely"
+    elif artery_block_weight < 13.6 :
+        const_artery_block_chances = "less"
+    else:
+        const_artery_block_chances = "medium"
 
+    # return const_heart_attack_chances, const_artery_block_chances
+    
+
+
+    # new_block_of_idk_anything_abt()
     
     response = {
         'smoke': smoke,
@@ -86,12 +116,11 @@ def submit():
         'age': age,
         'diabetes': diabetes,
         'heart_disease': heart_disease,
-        'heart_attack_weight': heart_attack_weight,
-        'artery_block_weight': artery_block_weight
+        'const_heart_attack_chances': const_heart_attack_chances,
+        'const_artery_block_chances': const_artery_block_chances
 
     }
 
-  
     # Redirect to a new webpage to display the result
     return redirect(url_for('result', **response))
 
@@ -100,22 +129,7 @@ def submit():
 # def context_processor():
     
     
-#     if heart_attack_weight_g >= 33 :
-#         const_heart_attack_chances = "highly likely"
-#     elif heart_attack_weight_g < 15 :
-#         const_heart_attack_chances = "less"
-#     else:
-#         const_heart_attack_chances = "medium"
-        
-#     if artery_block_weight_g >= 31.2 :
-#         const_artery_block_chances = "highly likely"
-#     elif artery_block_weight_g < 13.6 :
-#         const_artery_block_chances = "less"
-#     else:
-#         const_artery_block_chances = "medium"
 
-#     return const_heart_attack_chances, const_artery_block_chances
-    
 
 @app.route('/result')
 def result():
@@ -126,13 +140,15 @@ def result():
     age = request.args.get('age')
     diabetes = request.args.get('diabetes')
     heart_disease = request.args.get('heart_disease')
-    heart_attack_weight = request.args.get('heart_attack_weight')
-    artery_block_weight = request.args.get('artery_block_weight')
+    const_heart_attack_chances = request.args.get('const_heart_attack_chances')
+    const_artery_block_chances = request.args.get('const_artery_block_chances')
     
     return render_template('result.html', smoke=smoke, fried_food=fried_food, alcohol=alcohol, exercise=exercise,
                            age=age, diabetes=diabetes, heart_disease=heart_disease, 
-                           heart_attack_weight=heart_attack_weight, artery_block_weight=artery_block_weight, )
-                        #    const_heart_attack_chances=const_heart_attack_chances, const_artery_block_chances=const_artery_block_chances)
+                        #    heart_attack_weight=heart_attack_weight, artery_block_weight=artery_block_weight, )
+                           const_heart_attack_chances=const_heart_attack_chances, const_artery_block_chances=const_artery_block_chances,)
 
 if __name__ == '__main__':
     app.run(debug=True)
+
+

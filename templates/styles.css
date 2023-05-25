@@ -1,5 +1,12 @@
+/* @font-face{
+  font-family: "open-sans";
+  src: url("static/fonts/Open-Sans/static/OpenSans_SemiCondensed-Medium.ttf") format("truetype")
+} */
+
+
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Open Sans', sans-serif;
+    
     background-color: #f2f2f2;
   }
   
