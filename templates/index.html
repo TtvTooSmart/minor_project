@@ -1,57 +1,73 @@
 <!DOCTYPE html>
 <html>
-<head>
+  <head>
     <link rel="stylesheet" href="static/css/styles.css">
     <link href="https://fonts.cdnfonts.com/css/open-sans" rel="stylesheet">
-  <title>Heart Disease Questionnaire</title>
-</head>
-<body>
-  <h1>Heart Disease Questionnaire</h1>
-  <form action="http://127.0.0.1:5000/submit" method="post" id = "data_form">
-    <label for="fried-food">Do you eat fried food?</label>
-    <select id="fried-food" name="fried-food" required>
+    <title>Heart Disease Questionnaire</title>
+  </head>
+  <body>
+    <h1>Heart Disease Questionnaire</h1>
+    <form action="http://127.0.0.1:5000/submit" method="post" id = "data_form">
+      
+      <label for="gender">what is your gender?</label>
+      <select id="gender" name="gender" required>
+        <option value="">Select an option</option>
+        <option value="male">Yes</option>
+        <option value="female">No</option>
+      </select><br>
+      
+      <label for="age">What is your age?</label>
+      <input type="number" id="age" name="age" required><br>
+      
+      <label for="smoking">Do you smoke?</label>
+      <select id="smoking" name="smoking" required>
+        <option value="">Select an option</option>
+        <option value="yes">Yes</option>
+        <option value="no">No</option>
+      </select><br>
+      
+      <label for="cigspd">ciggeretes per day?</label>
+      <input type="number" id="cigspd" name="cigspd" required><br>
+      
+      <label for="bpmeds">Do you take bp medications?</label>
+      <select id="bpmeds" name="bpmeds" required>
+        <option value="">Select an option</option>
+        <option value="yes">Yes</option>
+        <option value="no">No</option>
+      </select><br>
+      
+      <label for="diabetes">Do you have diabetes?</label>
+      <select id="diabetes" name="diabetes" required>
+        <option value="">Select an option</option>
+        <option value="yes">Yes</option>
+        <option value="no">No</option>
+      </select><br>
+
+      <label for="totChol">Your blood cholestrol amount?</label>
+      <input type="number" id="totChol" name="totChol" required><br>
+
+    <label for="sysBP">Your blood pressure level?(systolic)</label>
+    <input type="number" id="sysBP" name="sysBP" required><br>
+
+    <label for="diaBP">Your blood pressure level?(diastolic)</label>
+    <input type="number" id="diaBP" name="diaBP" required><br>
+
+    <label for="BMI">your body mass index?</label>
+    <input type="number" id="BMI" name="BMI" required><br>
+
+    <label for="heart-rate">your heart rate?</label>
+    <input type="number" id="heart-rate" name="heart-rate" required><br>
+
+    <label for="gluclvl">your glucose levels?</label>
+    <input type="number" id="gluclvl" name="gluclvl" required><br>
+    
+    <label for="tenchd">your ten year chd score?</label>
+    <select id="tenchd" name="tenchd" required>
       <option value="">Select an option</option>
       <option value="yes">Yes</option>
       <option value="no">No</option>
     </select><br>
 
-    <label for="alcohol">Do you drink alcohol?</label>
-    <select id="alcohol" name="alcohol" required>
-      <option value="">Select an option</option>
-      <option value="yes">Yes</option>
-      <option value="no">No</option>
-    </select><br>
-
-    <label for="exercise">Do you exercise daily?</label>
-    <select id="exercise" name="exercise" required>
-      <option value="">Select an option</option>
-      <option value="yes">Yes</option>
-      <option value="no">No</option>
-    </select><br>
-
-    <label for="age">What is your age?</label>
-    <input type="number" id="age" name="age" required><br>
-
-    <label for="diabetes">Do you have diabetes?</label>
-    <select id="diabetes" name="diabetes" required>
-      <option value="">Select an option</option>
-      <option value="yes">Yes</option>
-      <option value="no">No</option>
-    </select><br>
-
-    <label for="family-history">Does anyone from your blood relatives have heart-related diseases?</label>
-    <select id="family-history" name="family-history" required>
-      <option value="">Select an option</option>
-      <option value="yes">Yes</option>
-      <option value="no">No</option>
-    </select><br>
-
-    <label for="smoking">Do you smoke?</label>
-    <select id="smoking" name="smoking" required>
-      <option value="">Select an option</option>
-      <option value="yes">Yes</option>
-      <option value="no">No</option>
-    </select><br>
 
     <input type="submit" value="Submit" id = "btn">
   </form>
