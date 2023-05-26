@@ -1,7 +1,10 @@
 from flask import Flask, request, jsonify, render_template, redirect, url_for
+import pickle
+import numpy as np 
+
 
 app = Flask(__name__)
-
+model = pickle.load(open('projectname.pickle','rb'))
 
     
 @app.route('/')
@@ -10,7 +13,7 @@ def index():
 
 @app.route('/submit', methods=['POST'])
 def submit():
-    gender = request.form.get('gender')
+    gender = (request.form.get('gender'))
     age = int(request.form.get('age'))
     smoke = request.form.get('smoking')
     cigspd = int(request.form.get('cigspd'))
@@ -20,11 +23,15 @@ def submit():
     sysBP = int(request.form.get('sysBP'))
     diaBP = int(request.form.get('diaBP'))
     BMI = int(request.form.get('BMI'))
-    heart-rate = int(request.form.get('heart-rate'))
+    heart_rate = int(request.form.get('heart_rate'))
     gluclvl = int(request.form.get('gluclvl'))
     tenchd = request.form.get('tenchd')
     
     
+    int_features = [int(x)  for x in request.form.values()]
+    final = [np.array(int_features)]
+    prediction = model.predict(final)
+    print(prediction)    
     
     
     
